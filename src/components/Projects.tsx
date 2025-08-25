@@ -18,7 +18,7 @@ const Projects = () => {
         >
             <h2 className="text-3xl font-semibold text-blue-600">Projects</h2>
             <ul className="mt-4 space-y-3">
-                {projectList.map((proj, index) => (
+                {projectList.map((proj, _index) => (
                     <motion.li
                         key={proj.name}
                         className="bg-white shadow-md rounded-lg p-4 hover:shadow-lg transition"
