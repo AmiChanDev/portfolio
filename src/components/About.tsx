@@ -38,7 +38,7 @@ const About = () => {
         transition={{ delay: 0.3, duration: 0.7 }}
       >
         Hi, I'm <span className="font-semibold">Amantha Gamage</span>, a{" "}
-        <span className="font-semibold">21-year-old software engineering undergraduate</span>{" "}
+        <span className="font-semibold">22-year-old software engineering undergraduate</span>{" "}
         passionate about coding and backend development. I love{" "}
         <span className="font-semibold text-green-600">coding</span> and building creative
         projects that solve real-world problems.
