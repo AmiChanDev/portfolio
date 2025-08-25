@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const navLinks = [
@@ -11,155 +11,172 @@ const navLinks = [
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [showNav, setShowNav] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      setShowNav(currentScrollY < lastScrollY || currentScrollY < 10);
+      setLastScrollY(currentScrollY);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [lastScrollY]);
 
   return (
-    <motion.nav
-      initial={{ y: -100, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 1, type: "spring" }}
-      style={{
-        background: "#fff",
-        padding: "1rem",
-        position: "sticky",
-        top: 0,
-        zIndex: 50,
-      }}
-    >
-      {/* Desktop Navbar */}
-      <ul
-        style={{
-          display: "flex",
-          gap: "1rem",
-          justifyContent: "center",
-        }}
-        className="desktop-nav"
-      >
-        {navLinks.map((link, idx) => (
-          <motion.li
-            key={link.href}
-            initial={{ y: 30, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{
-              delay: 0.9 + idx * 0.1,
-              duration: 0.4,
-              type: "spring",
-            }}
-            style={{ listStyle: "none" }}
-          >
-            <motion.a
-              href={link.href}
-              whileTap={{ scale: 0.98 }}
-              whileHover={{ scale: 1.05, backgroundColor: "#e0eafc" }}
-              transition={{ type: "spring", stiffness: 300 }}
-              style={{
-                display: "inline-block",
-                padding: "0.45rem 0.9rem",
-                border: link.border,
-                borderRadius: 6,
-                textDecoration: "none",
-                color: "inherit",
-                cursor: "pointer",
-                fontWeight: 500,
-                background: "transparent",
-                minWidth: "120px", // 🔥 all buttons same width
-                textAlign: "center",
-              }}
-            >
-              {link.label}
-            </motion.a>
-          </motion.li>
-        ))}
-      </ul>
-
-      {/* Mobile Hamburger */}
-      <div
-        className="mobile-nav"
-        style={{
-          display: "none",
-          justifyContent: "space-between",
-          alignItems: "center",
-        }}
-      >
-        <button
-          onClick={() => setIsOpen(!isOpen)}
+    <AnimatePresence>
+      {showNav && (
+        <motion.nav
+          initial={{ y: -100, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          exit={{ y: -100, opacity: 0 }}
+          transition={{ duration: 0.5, type: "spring" }}
           style={{
-            background: "transparent",
-            border: "none",
-            fontSize: "1.5rem",
-            cursor: "pointer",
+            background: "#fff",
+            padding: "1rem",
+            position: "sticky",
+            top: 0,
+            zIndex: 50,
           }}
         >
-          ☰
-        </button>
-      </div>
-
-      {/* Mobile Dropdown Menu */}
-      <AnimatePresence>
-        {isOpen && (
-          <motion.ul
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: "auto", opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.4, type: "spring" }}
+          {/* Desktop Navbar */}
+          <ul
             style={{
               display: "flex",
-              flexDirection: "column",
-              gap: "0.7rem",
-              marginTop: "1rem",
-              alignItems: "center",
-              width: "100%",
+              gap: "1rem",
+              justifyContent: "center",
             }}
-            className="mobile-menu"
+            className="desktop-nav"
           >
-            {navLinks.map((link) => (
-              <li
+            {navLinks.map((link, idx) => (
+              <motion.li
                 key={link.href}
-                style={{ listStyle: "none", width: "100%", maxWidth: "250px" }}
+                initial={{ y: 30, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{
+                  delay: 0.9 + idx * 0.1,
+                  duration: 0.4,
+                  type: "spring",
+                }}
+                style={{ listStyle: "none" }}
               >
-                <a
+                <motion.a
                   href={link.href}
-                  onClick={() => setIsOpen(false)}
+                  whileTap={{ scale: 0.98 }}
+                  whileHover={{ scale: 1.05, backgroundColor: "#e0eafc" }}
+                  transition={{ type: "spring", stiffness: 300 }}
                   style={{
-                    display: "block",
-                    padding: "0.5rem 0.5rem",
+                    display: "inline-block",
+                    padding: "0.45rem 0.9rem",
                     border: link.border,
-                    borderRadius: 9,
+                    borderRadius: 6,
                     textDecoration: "none",
                     color: "inherit",
                     cursor: "pointer",
                     fontWeight: 500,
                     background: "transparent",
+                    minWidth: "120px",
                     textAlign: "center",
-                    width: "100%", // 🔥 full width on mobile
                   }}
                 >
                   {link.label}
-                </a>
-              </li>
+                </motion.a>
+              </motion.li>
             ))}
-          </motion.ul>
-        )}
-      </AnimatePresence>
+          </ul>
 
-      {/* CSS (inline or external) */}
-      <style>
-        {`
-          @media (max-width: 768px) {
-            .desktop-nav {
-              display: none !important;
-            }
-            .mobile-nav {
-              display: flex !important;
-            }
-          }
-          @media (min-width: 769px) {
-            .mobile-nav, .mobile-menu {
-              display: none !important;
-            }
-          }
-        `}
-      </style>
-    </motion.nav>
+          {/* Mobile Hamburger */}
+          <div
+            className="mobile-nav"
+            style={{
+              display: "none",
+              justifyContent: "space-between",
+              alignItems: "center",
+            }}
+          >
+            <button
+              onClick={() => setIsOpen(!isOpen)}
+              style={{
+                background: "transparent",
+                border: "none",
+                fontSize: "1.5rem",
+                cursor: "pointer",
+              }}
+            >
+              ☰
+            </button>
+          </div>
+
+          {/* Mobile Dropdown Menu */}
+          <AnimatePresence>
+            {isOpen && (
+              <motion.ul
+                initial={{ height: 0, opacity: 0 }}
+                animate={{ height: "auto", opacity: 1 }}
+                exit={{ height: 0, opacity: 0 }}
+                transition={{ duration: 0.4, type: "spring" }}
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  gap: "0.7rem",
+                  marginTop: "1rem",
+                  alignItems: "center",
+                  width: "100%",
+                }}
+                className="mobile-menu"
+              >
+                {navLinks.map((link) => (
+                  <li
+                    key={link.href}
+                    style={{ listStyle: "none", width: "100%", maxWidth: "250px" }}
+                  >
+                    <a
+                      href={link.href}
+                      onClick={() => setIsOpen(false)}
+                      style={{
+                        display: "block",
+                        padding: "0.5rem 0.5rem",
+                        border: link.border,
+                        borderRadius: 9,
+                        textDecoration: "none",
+                        color: "inherit",
+                        cursor: "pointer",
+                        fontWeight: 500,
+                        background: "transparent",
+                        textAlign: "center",
+                        width: "100%",
+                      }}
+                    >
+                      {link.label}
+                    </a>
+                  </li>
+                ))}
+              </motion.ul>
+            )}
+          </AnimatePresence>
+
+          {/* CSS (inline or external) */}
+          <style>
+            {`
+              @media (max-width: 768px) {
+                .desktop-nav {
+                  display: none !important;
+                }
+                .mobile-nav {
+                  display: flex !important;
+                }
+              }
+              @media (min-width: 769px) {
+                .mobile-nav, .mobile-menu {
+                  display: none !important;
+                }
+              }
+            `}
+          </style>
+        </motion.nav>
+      )}
+    </AnimatePresence>
   );
 };
 
