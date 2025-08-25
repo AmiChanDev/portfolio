@@ -33,7 +33,8 @@ const NotifyMe = () => {
 **Email:** ${email || "N/A"}
 **Message:** ${message}
 **IP:** ${ip || "N/A"}
-**Sent At:** ${new Date().toLocaleString()}`
+**Sent At:** ${new Date().toLocaleString()}
+-----------------------------------`
         };
 
         try {
