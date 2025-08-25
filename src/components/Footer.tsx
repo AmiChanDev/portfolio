@@ -16,7 +16,7 @@ const Footer = () => {
         className="inline-block"
       >
         &copy; 2025{" "}
-        <span className="text-green-600 font-semibold">Amantha Gamage (AmiChanDev)</span> — All rights reserved.
+        <span className="text-blue-600 font-semibold">Amantha Gamage (AmiChanDev)</span> — All rights reserved.
       </motion.span>
     </motion.footer>
   );

@@ -58,7 +58,7 @@ const Projects = () => {
                             href={proj.link}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="inline-flex items-center mt-4 font-medium text-green-600 underline"
+                            className="inline-flex items-center mt-4 font-medium text-blue-600 underline"
                             whileHover={{ scale: 1.05 }}
                             transition={{ type: "spring", stiffness: 300 }}
                         >

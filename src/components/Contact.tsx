@@ -39,7 +39,7 @@ const Contact = () => {
                     Email:{" "}
                     <a
                         href="mailto:gamageamantha@gmail.coms"
-                        className="text-green-600 font-medium hover:underline"
+                        className="text-blue-600 font-medium hover:underline"
                     >
                         gamageamantha@gmail.com
                     </a>
@@ -50,7 +50,7 @@ const Contact = () => {
                         href="https://github.com/AmiChanDev"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-green-600 font-medium hover:underline"
+                        className="text-blue-600 font-medium hover:underline"
                     >
                         github.com/AmiChanDev
                     </a>
