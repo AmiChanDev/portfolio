@@ -1,54 +1,166 @@
-import { motion } from "framer-motion";
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
 const navLinks = [
-    { href: "#header", label: "Home", border: "2px solid #111" },
-    { href: "#about", label: "About", border: "2px solid blue" },
-    { href: "#projects", label: "Projects", border: "2px solid red" },
-    { href: "#skills", label: "Skills", border: "2px solid green" },
-    { href: "#contact", label: "Contact", border: "2px solid #111" },
+  { href: "#header", label: "Home", border: "2px solid #111" },
+  { href: "#about", label: "About", border: "2px solid blue" },
+  { href: "#projects", label: "Projects", border: "2px solid red" },
+  { href: "#skills", label: "Skills", border: "2px solid green" },
+  { href: "#contact", label: "Contact", border: "2px solid #111" },
 ];
 
 const Navbar = () => {
-    return (
-        <motion.nav
-            initial={{ y: -100, opacity: 0 }}
+  const [isOpen, setIsOpen] = useState(false);
+
+  return (
+    <motion.nav
+      initial={{ y: -100, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 1, type: "spring" }}
+      style={{
+        background: "#fff",
+        padding: "1rem",
+        position: "sticky",
+        top: 0,
+        zIndex: 50,
+      }}
+    >
+      {/* Desktop Navbar */}
+      <ul
+        style={{
+          display: "flex",
+          gap: "1rem",
+          justifyContent: "center",
+        }}
+        className="desktop-nav"
+      >
+        {navLinks.map((link, idx) => (
+          <motion.li
+            key={link.href}
+            initial={{ y: 30, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
-            transition={{ duration: 1, type: "spring" }}
-            style={{ background: "#fff", padding: "1rem" }}
+            transition={{
+              delay: 0.9 + idx * 0.1,
+              duration: 0.4,
+              type: "spring",
+            }}
+            style={{ listStyle: "none" }}
+          >
+            <motion.a
+              href={link.href}
+              whileTap={{ scale: 0.98 }}
+              whileHover={{ scale: 1.05, backgroundColor: "#e0eafc" }}
+              transition={{ type: "spring", stiffness: 300 }}
+              style={{
+                display: "inline-block",
+                padding: "0.45rem 0.9rem",
+                border: link.border,
+                borderRadius: 6,
+                textDecoration: "none",
+                color: "inherit",
+                cursor: "pointer",
+                fontWeight: 500,
+                background: "transparent",
+                minWidth: "120px", // 🔥 all buttons same width
+                textAlign: "center",
+              }}
+            >
+              {link.label}
+            </motion.a>
+          </motion.li>
+        ))}
+      </ul>
+
+      {/* Mobile Hamburger */}
+      <div
+        className="mobile-nav"
+        style={{
+          display: "none",
+          justifyContent: "space-between",
+          alignItems: "center",
+        }}
+      >
+        <button
+          onClick={() => setIsOpen(!isOpen)}
+          style={{
+            background: "transparent",
+            border: "none",
+            fontSize: "1.5rem",
+            cursor: "pointer",
+          }}
         >
-            <ul style={{ display: "flex", gap: "2rem", justifyContent: "center" }}>
-                {navLinks.map((link, idx) => (
-                    <motion.li
-                        key={link.href}
-                        initial={{ y: 30, opacity: 0 }}
-                        animate={{ y: 0, opacity: 1 }}
-                        transition={{ delay: 0.9 + idx * 0.1, duration: 0.4, type: "spring" }}
-                        style={{ listStyle: "none" }}
-                    >
-                        <motion.a
-                            href={link.href}
-                            whileTap={{ scale: 0.98 }}
-                            whileHover={{ scale: 1.1, backgroundColor: "#e0eafc" }}
-                            transition={{ type: "spring", stiffness: 300 }}
-                            style={{
-                                display: "inline-block",
-                                padding: "0.45rem 0.9rem",
-                                border: link.border,
-                                borderRadius: 6,
-                                textDecoration: "none",
-                                color: "inherit",
-                                cursor: "pointer",
-                                fontWeight: 500,
-                                background: "transparent",
-                            }}
-                        >
-                            {link.label}
-                        </motion.a>
-                    </motion.li>
-                ))}
-            </ul>
-        </motion.nav>
-    );
-}
+          ☰
+        </button>
+      </div>
+
+      {/* Mobile Dropdown Menu */}
+      <AnimatePresence>
+        {isOpen && (
+          <motion.ul
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: "auto", opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.4, type: "spring" }}
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              gap: "1rem",
+              marginTop: "1rem",
+              alignItems: "center",
+              width: "100%",
+            }}
+            className="mobile-menu"
+          >
+            {navLinks.map((link) => (
+              <li
+                key={link.href}
+                style={{ listStyle: "none", width: "100%", maxWidth: "250px" }}
+              >
+                <a
+                  href={link.href}
+                  onClick={() => setIsOpen(false)}
+                  style={{
+                    display: "block",
+                    padding: "0.6rem 1rem",
+                    border: link.border,
+                    borderRadius: 6,
+                    textDecoration: "none",
+                    color: "inherit",
+                    cursor: "pointer",
+                    fontWeight: 500,
+                    background: "transparent",
+                    textAlign: "center",
+                    width: "100%", // 🔥 full width on mobile
+                  }}
+                >
+                  {link.label}
+                </a>
+              </li>
+            ))}
+          </motion.ul>
+        )}
+      </AnimatePresence>
+
+      {/* CSS (inline or external) */}
+      <style>
+        {`
+          @media (max-width: 768px) {
+            .desktop-nav {
+              display: none !important;
+            }
+            .mobile-nav {
+              display: flex !important;
+            }
+          }
+          @media (min-width: 769px) {
+            .mobile-nav, .mobile-menu {
+              display: none !important;
+            }
+          }
+        `}
+      </style>
+    </motion.nav>
+  );
+};
 
 export default Navbar;
