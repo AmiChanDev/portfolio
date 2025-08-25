@@ -6,7 +6,7 @@ const navLinks = [
   { href: "#about", label: "About", border: "2px solid blue" },
   { href: "#projects", label: "Projects", border: "2px solid red" },
   { href: "#skills", label: "Skills", border: "2px solid green" },
-  { href: "#contact", label: "Contact", border: "2px solid #111" },
+  { href: "#contact", label: "Contact", border: "2px solid purple" },
 ];
 
 const Navbar = () => {
@@ -104,7 +104,7 @@ const Navbar = () => {
             style={{
               display: "flex",
               flexDirection: "column",
-              gap: "1rem",
+              gap: "0.7rem",
               marginTop: "1rem",
               alignItems: "center",
               width: "100%",
@@ -121,9 +121,9 @@ const Navbar = () => {
                   onClick={() => setIsOpen(false)}
                   style={{
                     display: "block",
-                    padding: "0.6rem 1rem",
+                    padding: "0.5rem 0.5rem",
                     border: link.border,
-                    borderRadius: 6,
+                    borderRadius: 9,
                     textDecoration: "none",
                     color: "inherit",
                     cursor: "pointer",
