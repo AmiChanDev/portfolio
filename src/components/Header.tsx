@@ -4,6 +4,7 @@ import me from "../assets/me.png";
 const Header = () => {
     return (
         <motion.header
+            id="header"
             className="text-black py-10 shadow-md bg-white"
             initial={{ y: -100, opacity: 0, rotate: -5 }}
             animate={{ y: 0, opacity: 1, rotate: 0 }}
