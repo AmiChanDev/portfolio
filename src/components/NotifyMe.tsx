@@ -88,16 +88,16 @@ const NotifyMe = () => {
                         value={message}
                         onChange={(e) => setMessage(e.target.value)}
                         className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-green-600 resize-none"
-                        rows={4}
+                        rows={3}
                     />
 
                     <motion.button
                         onClick={handleSubmit}
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
-                        className="mt-2 px-6 py-2 bg-green-600 text-white rounded-lg font-medium shadow-md hover:bg-green-700 transition self-center md:self-start"
+                        className="mt-2 w-full px-3 py-2 bg-green-600 text-white rounded-lg font-medium shadow-md hover:bg-green-700 transition"
                     >
-                        Notify Me
+                        Send
                     </motion.button>
 
                     {submitted && (
