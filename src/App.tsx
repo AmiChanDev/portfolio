@@ -6,6 +6,7 @@ import Skills from './components/Skills'
 import Contact from './components/Contact'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
+import NotifyMe from './components/NotifyMe'
 
 function App() {
 
@@ -17,6 +18,7 @@ function App() {
       <Projects />
       <Skills />
       <Contact />
+      <NotifyMe />
       <Footer />
     </>
   )
