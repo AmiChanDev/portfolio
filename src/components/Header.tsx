@@ -39,7 +39,7 @@ const Header = () => {
                         animate={{ y: 0, opacity: 1 }}
                         transition={{ delay: 0.5, duration: 0.5 }}
                     >
-                        Passionate Coder | Backend Enthusiast | SE Undergraduate
+                        Full-Stack Developer | AI Enthusiast | SE Undergraduate
                     </motion.p>
                 </div>
             </motion.div>

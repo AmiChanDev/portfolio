@@ -39,9 +39,9 @@ const About = () => {
       >
         Hi, I'm <span className="font-semibold">Amantha Gamage</span>, a{" "}
         <span className="font-semibold">22-year-old software engineering undergraduate</span>{" "}
-        passionate about coding and backend development. I love{" "}
-        <span className="font-semibold text-green-600">coding</span> and building creative
-        projects that solve real-world problems.
+        passionate about full stack development and problem-solving. I love{" "}
+        <span className="font-semibold text-green-600">coding</span> to build creative
+        projects that solve real world problems.
         <br />
         <br />
         Explore my work and open-source contributions on{" "}
