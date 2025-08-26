@@ -16,13 +16,15 @@ const Navbar = () => {
 
   useEffect(() => {
     const handleScroll = () => {
+      if (isOpen) return;
       const currentScrollY = window.scrollY;
       setShowNav(currentScrollY < lastScrollY || currentScrollY < 10);
       setLastScrollY(currentScrollY);
     };
+
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [lastScrollY]);
+  }, [lastScrollY, isOpen]);
 
   return (
     <AnimatePresence>
