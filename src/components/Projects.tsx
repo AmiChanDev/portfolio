@@ -40,6 +40,9 @@ const Projects = () => {
                 </motion.span>
                 <h2 className="text-3xl font-semibold text-black">Projects</h2>
             </motion.div>
+            <h4 className="mt-2 text-md font-semibold text-black text-center">{ /*will probably remove later*/}
+                {"{More On My Github}"}
+            </h4>
 
             {/* Project Cards */}
             <div className="grid md:grid-cols-2 gap-6 mt-8">
