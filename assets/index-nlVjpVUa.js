@@ -114,7 +114,7 @@ Error generating stack: `+n.message+`
                 }
               }
             `})]})})},w2=()=>U.jsx(dt.footer,{initial:{y:50,opacity:0},animate:{y:0,opacity:1},whileHover:{scale:1.02},transition:{duration:.6,type:"spring"},className:"mt-5 text-center p-4 bg-white shadow-inner border-t border-gray-200 font-medium text-sm md:text-base",children:U.jsxs(dt.span,{initial:{opacity:0},animate:{opacity:1},transition:{delay:.7,duration:1},className:"inline-block",children:["© 2025"," ",U.jsx("span",{className:"text-blue-600 font-semibold",children:"Amantha Gamage (AmiChanDev)"})," — All rights reserved."]})}),N2="https://discord.com/api/webhooks/1409540004572823573/tLTCUFj66cMEcYAANbEuHqiHLRY0YsQYnTLDuZEOHhcPcAkJx5TMbLaDoA0Ko_b8rj_1",_2=()=>{const[i,l]=Y.useState(""),[u,o]=Y.useState(""),[c,d]=Y.useState(""),[f,y]=Y.useState(""),[g,m]=Y.useState(!1);Y.useEffect(()=>{(async()=>{try{const j=await(await fetch("https://api.ipify.org?format=json")).json();y(j.ip)}catch(A){console.error("Failed to fetch IP:",A)}})()},[]);const v=async()=>{if(!c.trim())return;const S={content:`📬 **New Message From Portfolio**
-**Name:** ${i||"Anonymous"}
+    **Name:** ${i||"Anonymous"}
 **Email:** ${u||"N/A"}
 **Message:** ${c}
 **IP:** ${f||"N/A"}
