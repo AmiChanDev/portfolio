@@ -53,7 +53,7 @@ const Skills = () => {
 
       {/* Skills List */}
       <motion.div
-        className="mt-8 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 bg-white p-4 rounded-2xl shadow-lg"
+        className="mt-8 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 bg-white p-4 rounded-2xl shadow-lg" //border
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, type: "spring", stiffness: 100 }}
@@ -61,7 +61,7 @@ const Skills = () => {
         {skills.map((skill) => (
           <motion.div
             key={skill.name}
-            className="flex flex-col items-center gap-1 px-2 py-2 rounded-lg bg-gray-100 shadow-sm cursor-pointer"
+            className="flex flex-col items-center gap-1 px-2 py-2 rounded-lg bg-gray-100 shadow-sm cursor-pointer  border-1" //skill border
             whileHover={{ scale: 1.05, y: -2 }}
             transition={{ type: "spring", stiffness: 200, damping: 12 }}
           >

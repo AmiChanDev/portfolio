@@ -49,7 +49,7 @@ const Projects = () => {
                 {projectList.map((proj, index) => (
                     <motion.div
                         key={proj.name}
-                        className="p-6 rounded-2xl shadow-lg bg-white border border-gray-200"
+                        className="p-6 rounded-2xl shadow-lg bg-white border border-black" //project card border
                         initial={{ opacity: 0, y: 40 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ delay: index * 0.2, duration: 0.6, type: "spring" }}

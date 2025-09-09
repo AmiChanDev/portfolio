@@ -29,7 +29,7 @@ const NotifyMe = () => {
 
         const payload = {
             content: `📬 **New Message From Portfolio**
-**Name:** ${name || "Anonymous"}
+    **Name:** ${name || "Anonymous"}
 **Email:** ${email || "N/A"}
 **Message:** ${message}
 **IP:** ${ip || "N/A"}

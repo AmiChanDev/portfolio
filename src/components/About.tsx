@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import CV from "../files/Amantha_Gamage_Professional_CV.pdf";
 
 const About = () => {
   return (
@@ -14,7 +15,7 @@ const About = () => {
       <motion.div
         initial={{ scale: 0.8, opacity: 0 }}
         whileInView={{ scale: 1, opacity: 1 }}
-        transition={{ delay: 0.1, duration: 0.5, type: "spring" }}
+        transition={{ delay: 0.1, duration: 0.3, type: "spring" }}
         className="flex items-center justify-center gap-2"
       >
         <motion.span
@@ -57,8 +58,28 @@ const About = () => {
         </motion.a>
         . Let’s connect and create something amazing!
       </motion.p>
+
+      {/* Download CV Button */}
+      <motion.div
+        className="mt-6 flex justify-center"
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.5, duration: 0.7 }}
+      >
+        <motion.a
+          href={CV}
+          download
+          className="px-8 py-3 rounded-full border-1 bg-white text-black font-semibold shadow-lg hover:bg-black hover:text-white transition-all text-lg"
+          whileHover={{ scale: 1.08 }}
+          whileTap={{ scale: 0.95 }}
+        >
+          📄 Download CV
+        </motion.a>
+
+      </motion.div>
     </motion.section>
   );
+
 };
 
 export default About;

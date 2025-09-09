@@ -65,7 +65,7 @@ const Contact = () => {
                         href={item.link}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="bg-white p-6 rounded-2xl shadow-lg flex items-center justify-center hover:shadow-xl hover:scale-105 transition-all duration-300"
+                        className="bg-white p-6 rounded-2xl shadow-lg flex items-center justify-center hover:shadow-xl hover:scale-105 transition-all duration-300 border-1" //border
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.1 * index, duration: 0.5, type: "spring" }}
