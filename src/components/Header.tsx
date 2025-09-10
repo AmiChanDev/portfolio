@@ -20,7 +20,7 @@ const Header = () => {
                 <img
                     src={me}
                     alt="Amantha Gamage"
-                    className="w-24 h-24 md:w-32 md:h-32 rounded-full shadow-lg object-cover"
+                    className="w-24 h-24 md:w-32 md:h-32 rounded-full shadow-lg object-cover border-1"
                 />
 
                 {/* Text Content */}

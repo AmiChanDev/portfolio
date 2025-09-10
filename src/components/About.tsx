@@ -40,7 +40,7 @@ const About = () => {
       >
         Hi, I'm <span className="font-semibold">Amantha Gamage</span>, a{" "}
         <span className="font-semibold">22-year-old software engineering undergraduate</span>{" "}
-        passionate about full stack development and problem-solving. I love{" "}
+        proficient in MERN stack and full-stack development. I love{" "}
         <span className="font-semibold text-green-600">coding</span> to build creative
         projects that solve real world problems.
         <br />
