@@ -15,8 +15,8 @@ const Footer = () => {
         transition={{ delay: 0.7, duration: 1 }}
         className="inline-block"
       >
-        &copy; 2025{" "}
         <span className="text-blue-600 font-semibold">Amantha Gamage (AmiChanDev)</span> — All rights reserved.
+        &copy; 2025{" "}
       </motion.span>
     </motion.footer>
   );
