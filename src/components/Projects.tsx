@@ -3,14 +3,34 @@ import { motion } from "framer-motion";
 const Projects = () => {
     const projectList = [
         {
-            name: "REST API Project",
-            link: "https://github.com/AmiChanDev/rest-api-project",
-            desc: "A fully RESTful API built with Node.js, Express, and TypeScript, following a clean and scalable MVC-style architecture. It supports CRUD operations with in-memory storage and is easily extendable to real databases.",
+            name: "Portfolio Website",
+            link: "https://github.com/AmiChanDev/portfolio",
+            desc: "A modern, responsive portfolio website showcasing my journey as a software engineer and backend developer. Built with React, TypeScript, and Tailwind CSS, featuring dark/light theme toggle and smooth animations.",
+        },
+        {
+            name: "Bizcord Bot",
+            link: "https://github.com/AmiChanDev/bizcord-bot-repo",
+            desc: "A Discord bot designed to simulate and gamify the experience of running a virtual business within a community server. Players can start businesses, hire employees, buy equipment, and generate revenue.",
         },
         {
             name: "Expense Tracker",
             link: "https://github.com/AmiChanDev/expense-tracker",
-            desc: "Expense Tracker is a full-stack web application that helps users manage and track their daily expenses. It provides a simple yet powerful way to add, categorize, and analyze financial transactions",
+            desc: "A full-stack web application that helps users manage and track their daily expenses. Built with React, Node.js, and TypeScript, providing a simple yet powerful way to add, categorize, and analyze financial transactions.",
+        },
+        {
+            name: "The Book Shelf",
+            link: "https://github.com/AmiChanDev/The-Book-Shelf-JavaEE",
+            desc: "A Java EE-based web application designed to manage and organize your personal book collection. This project demonstrates the use of Java EE technologies to build a robust backend for handling book data.",
+        },
+        {
+            name: "Python Banking App",
+            link: "https://github.com/AmiChanDev/pythonBank-with-GUI",
+            desc: "A Python desktop banking application with Tkinter GUI featuring secure login, account management, and transactions. Uses SQLite for data storage and showcases a clean, user-friendly interface.",
+        },
+        {
+            name: "REST API Project",
+            link: "https://github.com/AmiChanDev/rest-api-project",
+            desc: "A fully RESTful API built with Node.js, Express, and TypeScript, following a clean and scalable MVC-style architecture. It supports CRUD operations with in-memory storage and is easily extendable to real databases.",
         }
     ];
 
