@@ -1,7 +1,10 @@
 import { motion } from "framer-motion";
 import CV from "../files/Amantha_Gamage_Professional_CV.pdf";
+import { useTheme } from "../theme/ThemeProvider";
 
 const About = () => {
+  const { theme } = useTheme();
+
   return (
     <motion.section
       id="about"
@@ -26,14 +29,14 @@ const About = () => {
         >
           💻
         </motion.span>
-        <h2 className="text-2xl md:text-3xl lg:text-4xl font-semibold">
+        <h2 className="text-2xl md:text-3xl lg:text-4xl font-semibold text-theme-primary">
           About Me
         </h2>
       </motion.div>
 
       {/* Content */}
       <motion.p
-        className="mt-8 text-base sm:text-lg md:text-xl leading-relaxed rounded-xl px-6 py-5 shadow-lg text-black text-center bg-white"
+        className="mt-8 text-base sm:text-lg md:text-xl leading-relaxed rounded-xl px-6 py-5 shadow-theme-lg text-theme-primary text-center bg-theme-primary border border-theme-secondary"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.3, duration: 0.7 }}
@@ -64,14 +67,26 @@ const About = () => {
         className="mt-6 flex justify-center"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.5, duration: 0.7 }}
+        transition={{ delay: 0.1, duration: 0.1 }}
       >
         <motion.a
           href={CV}
           download
-          className="px-8 py-3 rounded-full border-1 bg-white text-black font-semibold shadow-lg hover:bg-black hover:text-white transition-all text-lg"
-          whileHover={{ scale: 1.08 }}
+          style={{
+            backgroundColor: theme === 'dark' ? '#ffffff' : '#000000',
+            color: theme === 'dark' ? '#000000' : '#ffffff',
+            border: `2px solid ${theme === 'dark' ? '#ffffff' : '#000000'}`
+          }}
+          className="px-8 py-3 rounded-full font-semibold shadow-theme-lg text-lg"
+          whileHover={{
+            scale: 1.08,
+            backgroundColor: theme === 'dark' ? '#000000' : '#ffffff',
+            color: theme === 'dark' ? '#ffffff' : '#000000',
+            border: `2px solid ${theme === 'dark' ? '#000000' : '#ffffff'}`,
+            transition: { duration: 0.2 }
+          }}
           whileTap={{ scale: 0.95 }}
+          transition={{ duration: 0.2 }}
         >
           📄 Download CV
         </motion.a>

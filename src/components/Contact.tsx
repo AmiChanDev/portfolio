@@ -54,7 +54,7 @@ const Contact = () => {
                 >
                     📬
                 </motion.span>
-                <h2 className="text-3xl font-semibold text-black">Contact</h2>
+                <h2 className="text-3xl font-semibold text-theme-primary">Contact</h2>
             </motion.div>
 
             {/* Icon Cards */}
@@ -65,7 +65,7 @@ const Contact = () => {
                         href={item.link}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="bg-white p-6 rounded-2xl shadow-lg flex items-center justify-center hover:shadow-xl hover:scale-105 transition-all duration-300 border-1" //border
+                        className="bg-theme-primary p-6 rounded-2xl shadow-theme-lg flex items-center justify-center hover:shadow-xl hover:scale-105 transition-all duration-300 border border-theme-secondary" //border
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.1 * index, duration: 0.5, type: "spring" }}

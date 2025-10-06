@@ -5,7 +5,7 @@ const Header = () => {
     return (
         <motion.header
             id="header"
-            className="text-black py-10 shadow-md bg-white"
+            className="py-10 shadow-theme bg-theme-primary text-theme-primary"
             initial={{ y: -100, opacity: 0, rotate: -5 }}
             animate={{ y: 0, opacity: 1, rotate: 0 }}
             transition={{ duration: 0.8, type: "spring" }}
@@ -34,13 +34,14 @@ const Header = () => {
                         Amantha Indrajith Gamage
                     </motion.h1>
                     <motion.p
-                        className="mt-2 text-base md:text-lg text-gray-700"
+                        className="mt-2 text-base md:text-lg text-theme-secondary"
                         initial={{ y: 20, opacity: 0 }}
                         animate={{ y: 0, opacity: 1 }}
                         transition={{ delay: 0.5, duration: 0.5 }}
                     >
                         Full-Stack Developer | AI Enthusiast | SE Undergraduate
                     </motion.p>
+
                 </div>
             </motion.div>
         </motion.header>

@@ -8,18 +8,22 @@ import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import NotifyMe from './components/NotifyMe'
 
+import { ThemeProvider } from './theme/ThemeProvider'
+
 function App() {
 
   return (
     <>
-      <Navbar />
-      <Header />
-      <About />
-      <Projects />
-      <Skills />
-      <Contact />
-      <NotifyMe />
-      <Footer />
+      <ThemeProvider>
+        <Navbar />
+        <Header />
+        <About />
+        <Projects />
+        <Skills />
+        <Contact />
+        <NotifyMe />
+        <Footer />
+      </ThemeProvider>
     </>
   )
 }

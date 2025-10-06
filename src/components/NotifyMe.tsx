@@ -57,7 +57,7 @@ const NotifyMe = () => {
 
     return (
         <motion.div
-            className="max-w-3xl mx-auto p-6 bg-white rounded-2xl shadow-lg"
+            className="max-w-3xl mx-auto p-6 bg-theme-primary rounded-2xl shadow-theme-lg border border-theme-secondary"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, type: "spring" }}
@@ -67,27 +67,27 @@ const NotifyMe = () => {
             >
                 {/* Form Inputs */}
                 <div className="flex-1 flex flex-col gap-3 w-full">
-                    <h3 className="text-center text-2xl md:text-3xl font-semibold text-black">Send a Message</h3>
+                    <h3 className="text-center text-2xl md:text-3xl font-semibold text-theme-primary">Send a Message</h3>
 
                     <input
                         type="text"
                         placeholder="Your Name"
                         value={name}
                         onChange={(e) => setName(e.target.value)}
-                        className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-green-600"
+                        className="w-full px-4 py-2 rounded-lg border border-theme-secondary bg-theme-secondary text-theme-primary focus:outline-none focus:ring-2 focus:ring-green-600"
                     />
                     <input
                         type="email"
                         placeholder="Your Email"
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
-                        className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-green-600"
+                        className="w-full px-4 py-2 rounded-lg border border-theme-secondary bg-theme-secondary text-theme-primary focus:outline-none focus:ring-2 focus:ring-green-600"
                     />
                     <textarea
                         placeholder="Enter your message..."
                         value={message}
                         onChange={(e) => setMessage(e.target.value)}
-                        className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-green-600 resize-none"
+                        className="w-full px-4 py-2 rounded-lg border border-theme-secondary bg-theme-secondary text-theme-primary focus:outline-none focus:ring-2 focus:ring-green-600 resize-none"
                         rows={3}
                     />
 

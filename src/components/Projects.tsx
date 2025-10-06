@@ -38,9 +38,9 @@ const Projects = () => {
                 >
                     🚀
                 </motion.span>
-                <h2 className="text-3xl font-semibold text-black">Projects</h2>
+                <h2 className="text-3xl font-semibold text-theme-primary">Projects</h2>
             </motion.div>
-            <h4 className="mt-2 text-md font-semibold text-black text-center">{ /*will probably remove later*/}
+            <h4 className="mt-2 text-md font-semibold text-theme-primary text-center">{ /*will probably remove later*/}
                 {"{More On My Github}"}
             </h4>
 
@@ -49,14 +49,14 @@ const Projects = () => {
                 {projectList.map((proj, index) => (
                     <motion.div
                         key={proj.name}
-                        className="p-6 rounded-2xl shadow-lg bg-white border border-black" //project card border
+                        className="p-6 rounded-2xl shadow-theme-lg bg-theme-primary border border-theme-primary" //project card border
                         initial={{ opacity: 0, y: 40 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ delay: index * 0.2, duration: 0.6, type: "spring" }}
                         whileHover={{ scale: 1.03 }}
                     >
-                        <h3 className="text-xl font-semibold text-black">{proj.name}</h3>
-                        <p className="mt-2 text-gray-800">{proj.desc}</p>
+                        <h3 className="text-xl font-semibold text-theme-primary">{proj.name}</h3>
+                        <p className="mt-2 text-theme-secondary">{proj.desc}</p>
                         <motion.a
                             href={proj.link}
                             target="_blank"

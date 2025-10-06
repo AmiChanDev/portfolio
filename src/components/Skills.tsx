@@ -48,12 +48,12 @@ const Skills = () => {
         >
           🛠️
         </motion.span>
-        <h2 className="text-3xl font-semibold text-black">Skills</h2>
+        <h2 className="text-3xl font-semibold text-theme-primary">Skills</h2>
       </motion.div>
 
       {/* Skills List */}
       <motion.div
-        className="mt-8 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 bg-white p-4 rounded-2xl shadow-lg" //border
+        className="mt-8 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 bg-theme-primary p-4 rounded-2xl shadow-theme-lg border border-theme-secondary" //border
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, type: "spring", stiffness: 100 }}
@@ -61,7 +61,7 @@ const Skills = () => {
         {skills.map((skill) => (
           <motion.div
             key={skill.name}
-            className="flex flex-col items-center gap-1 px-2 py-2 rounded-lg bg-gray-100 shadow-sm cursor-pointer  border-1" //skill border
+            className="flex flex-col items-center gap-1 px-2 py-2 rounded-lg bg-theme-secondary shadow-theme cursor-pointer border border-theme-secondary" //skill border
             whileHover={{ scale: 1.05, y: -2 }}
             transition={{ type: "spring", stiffness: 200, damping: 12 }}
           >
@@ -70,7 +70,7 @@ const Skills = () => {
               alt={skill.name}
               className="h-8 w-8 object-contain"
             />
-            <span className="text-black font-medium text-xs text-center">{skill.name}</span>
+            <span className="text-theme-primary font-medium text-xs text-center">{skill.name}</span>
           </motion.div>
         ))}
       </motion.div>
