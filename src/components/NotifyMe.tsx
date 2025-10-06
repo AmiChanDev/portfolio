@@ -28,10 +28,13 @@ const NotifyMe = () => {
         if (!message.trim()) return;
 
         const payload = {
-            content: `📬 **New Message From Portfolio**
-    **Name:** ${name || "Anonymous"}
+            content: `
+📬 **New Message From Portfolio**
+
+**Name:** ${name || "Anonymous"}
 **Email:** ${email || "N/A"}
 **Message:** ${message}
+
 **IP:** ${ip || "N/A"}
 **Sent At:** ${new Date().toLocaleString()}
 -----------------------------------`
