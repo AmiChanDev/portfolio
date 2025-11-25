@@ -14,7 +14,12 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [showNav, setShowNav] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
+  const [hasAnimated, setHasAnimated] = useState(false);
   const { theme, toggleTheme } = useTheme();
+
+  useEffect(() => {
+    setHasAnimated(true);
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -69,11 +74,11 @@ const Navbar = () => {
               {navLinks.map((link, idx) => (
                 <motion.li
                   key={link.href}
-                  initial={{ y: 30, opacity: 0 }}
+                  initial={hasAnimated ? { y: 0, opacity: 1 } : { y: 30, opacity: 0 }}
                   animate={{ y: 0, opacity: 1 }}
                   transition={{
-                    delay: 0.9 + idx * 0.1,
-                    duration: 0.4,
+                    delay: hasAnimated ? 0 : 0.9 + idx * 0.1,
+                    duration: hasAnimated ? 0 : 0.4,
                     type: "spring",
                   }}
                   style={{ listStyle: "none" }}

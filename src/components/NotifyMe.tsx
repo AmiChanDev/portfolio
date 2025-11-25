@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
+import { useTheme } from "../theme/ThemeProvider";
 
 const WEBHOOK_URL = import.meta.env.VITE_WEBHOOK_URL;
 
@@ -9,6 +10,7 @@ const NotifyMe = () => {
     const [message, setMessage] = useState("");
     const [ip, setIp] = useState("");
     const [submitted, setSubmitted] = useState(false);
+    const { theme } = useTheme();
 
     // Fetch visitor IP
     useEffect(() => {
@@ -60,7 +62,7 @@ const NotifyMe = () => {
 
     return (
         <motion.div
-            className="max-w-3xl mx-auto p-6 bg-theme-primary rounded-2xl shadow-theme-lg border border-black"
+            className={`max-w-3xl mx-auto p-6 bg-theme-primary rounded-2xl shadow-theme-lg border ${theme === 'dark' ? 'border-white' : 'border-black'}`}
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, type: "spring" }}
@@ -77,20 +79,20 @@ const NotifyMe = () => {
                         placeholder="Your Name"
                         value={name}
                         onChange={(e) => setName(e.target.value)}
-                        className="w-full px-4 py-2 rounded-lg border border-black bg-theme-secondary text-theme-primary focus:outline-none focus:ring-2 focus:ring-green-600"
+                        className={`w-full px-4 py-2 rounded-lg border ${theme === 'dark' ? 'border-white' : 'border-black'} bg-theme-secondary text-theme-primary focus:outline-none focus:ring-2 focus:ring-green-600`}
                     />
                     <input
                         type="email"
                         placeholder="Your Email"
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
-                        className="w-full px-4 py-2 rounded-lg border border-black bg-theme-secondary text-theme-primary focus:outline-none focus:ring-2 focus:ring-green-600"
+                        className={`w-full px-4 py-2 rounded-lg border ${theme === 'dark' ? 'border-white' : 'border-black'} bg-theme-secondary text-theme-primary focus:outline-none focus:ring-2 focus:ring-green-600`}
                     />
                     <textarea
                         placeholder="Enter your message..."
                         value={message}
                         onChange={(e) => setMessage(e.target.value)}
-                        className="w-full px-4 py-2 rounded-lg border border-black bg-theme-secondary text-theme-primary focus:outline-none focus:ring-2 focus:ring-green-600 resize-none"
+                        className={`w-full px-4 py-2 rounded-lg border ${theme === 'dark' ? 'border-white' : 'border-black'} bg-theme-secondary text-theme-primary placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-green-600 resize-none`}
                         rows={3}
                     />
 
