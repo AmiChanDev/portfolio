@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 
-const WEBHOOK_URL = "https://discord.com/api/webhooks/1409540004572823573/tLTCUFj66cMEcYAANbEuHqiHLRY0YsQYnTLDuZEOHhcPcAkJx5TMbLaDoA0Ko_b8rj_1";
+const WEBHOOK_URL = import.meta.env.VITE_WEBHOOK_URL;
 
 const NotifyMe = () => {
     const [name, setName] = useState("");
