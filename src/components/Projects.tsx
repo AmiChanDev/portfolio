@@ -48,6 +48,7 @@ const Projects = () => {
                 initial={{ scale: 0.8, opacity: 0 }}
                 whileInView={{ scale: 1, opacity: 1 }}
                 transition={{ delay: 0.1, duration: 0.5, type: "spring" }}
+                viewport={{ once: true }}
                 className="flex items-center justify-center gap-2"
             >
                 <motion.span
@@ -73,6 +74,7 @@ const Projects = () => {
                         initial={{ opacity: 0, y: 40 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ delay: index * 0.2, duration: 0.6, type: "spring" }}
+                        viewport={{ once: true }}
                         whileHover={{ scale: 1.03 }}
                     >
                         <h3 className="text-xl font-semibold text-theme-primary">{proj.name}</h3>

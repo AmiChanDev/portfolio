@@ -102,6 +102,7 @@ const Contact = () => {
                 initial={{ scale: 0.8, opacity: 0 }}
                 whileInView={{ scale: 1, opacity: 1 }}
                 transition={{ delay: 0.1, duration: 0.5, type: "spring" }}
+                viewport={{ once: true }}
                 className="flex items-center justify-center gap-2"
             >
                 <motion.span
@@ -127,6 +128,7 @@ const Contact = () => {
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.1 * index, duration: 0.5, type: "spring" }}
+                        viewport={{ once: true }}
                     >
                         {item.icon}
                     </motion.a>
